@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// MongoDB Connection
+// MongoDB Connection   
 mongoose
   .connect("mongodb://localhost:27017/classroom_db", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Database connected"))
