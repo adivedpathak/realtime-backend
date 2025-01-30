@@ -3,6 +3,7 @@ const User = require("../models/User");
 
 // Create a new classroom
 exports.createClassroom = async (req, res) => {
+  res.write("new classroom creating");
   try {
     const { name, teacherId } = req.body;
     const teacher = await User.findById(teacherId);

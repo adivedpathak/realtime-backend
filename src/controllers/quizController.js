@@ -1,6 +1,6 @@
 const Quiz = require('../models/Quiz');
 const Assignment = require('../models/Assignment');
-const axios = require('axios');  // To fetch quiz from AI Model
+const axios = require('axios');  
 
 // Helper function to fetch quiz from AI Model
 const fetchAIQuiz = async (topic, difficulty) => {
@@ -11,10 +11,10 @@ const fetchAIQuiz = async (topic, difficulty) => {
       difficulty,
     });
     
-    // Sample response structure
+  
     const { questions } = response.data;
     
-    // Ensure the structure is correct, e.g., that you have the right fields.
+    
     return questions.map((question) => ({
       questionText: question.question,
       options: question.options,
@@ -25,7 +25,7 @@ const fetchAIQuiz = async (topic, difficulty) => {
   }
 };
 
-// Get Randomized Quiz for Student (Based on Topic and Difficulty)
+// Get Random Quiz for Student (Based on Topic and Difficulty)
 exports.getQuiz = async (req, res) => {
   const { topic, difficulty } = req.query;
 

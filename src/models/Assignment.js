@@ -7,18 +7,17 @@ const submissionSchema = new mongoose.Schema({
   feedback: { type: String },
   submittedAt: { type: Date, default: Date.now },
 });
-const mongoose = require('mongoose');
 
 const assignmentSchema = new mongoose.Schema({
-  classroomId: { type: mongoose.Schema.Types.ObjectId, ref: 'Classroom', required: true },
+  classroomId: { type: mongoose.Schema.Types.ObjectId, ref: "Classroom", required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
-  assignmentType: { type: String, enum: ['quiz', 'descriptive'], required: true },
+  assignmentType: { type: String, enum: ["quiz", "descriptive"], required: true },
   dueDate: { type: Date, required: true },
   fileUrl: { type: String },
 });
 
-module.exports = mongoose.model('Assignment', assignmentSchema);
+const Assignment = mongoose.model("Assignment", assignmentSchema);
+const Submission = mongoose.model("Submission", submissionSchema);
 
-
-module.exports = mongoose.model("Assignment", assignmentSchema);
+module.exports = { Assignment, Submission };
